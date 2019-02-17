@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Metronome</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Metronome</h1>
+
+    <div class="form-group">
+
+      <div class="row align-items-center">
+        <div class="col-sm-3">
+          <label for="volRange">Volume</label>
+        </div>
+        <div class="col-sm-6">
+          <input class="form-control-range" type="range" id="volRange"
+                 min="0" max="100" value="50"
+                 oninput="volRangeInput(this.value);">
+        </div>
+        <div class="col-sm-3">
+          <input class="form-control" type="number" id="volNumber"
+                 min="0" max="100" value="50"
+                 oninput="volNumberInput(this.value);">
+        </div>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-sm-3">
+          <label for="bpmRange">Beats/Minute</label>
+        </div>
+        <div class="col-sm-6">
+          <input class="form-control-range" type="range" id="bpmRange"
+                 min="30" max="300" value="100"
+                 oninput="bpmRangeInput(this.value);">
+        </div>
+        <div class="col-sm-3">
+          <input class="form-control" type="number" id="bpmNumber"
+                 min="30" max="300" value="100"
+                 oninput="bpmNumberInput(this.value);">
+        </div>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-sm-3 checkbox">
+          <label>
+            <input type="checkbox" id="beep"
+                   onchange="beep = this.checked;"> Beep
+          </label>
+        </div>
+        <div class="col-sm-3 checkbox">
+          <label>
+            <input type="checkbox" id="flash" checked
+                   onchange="flash = this.checked;"> Flash
+          </label>
+        </div>
+        <div class="col-sm-3">
+          <button class="btn btn-default" id="startStop"
+                  onclick="startStop();">Start</button>
+        </div>
+      </div>
+
+    </div> <!-- form-group -->
+
+  </div> <!-- container -->
+
+  <script src="metronome.js" async></script>
+
+</body>
+
+</html>
