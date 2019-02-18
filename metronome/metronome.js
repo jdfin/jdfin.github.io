@@ -74,7 +74,7 @@ function startStop() {
     clearInterval(bipper);
     bipper = undefined;
     document.querySelector("#startStop").innerText = "Start";
-    document.querySelector("#startStop").style.backgroundColor = "buttonface";
+    document.querySelector("#startStop").style.backgroundColor = "#6c757d";
   } else {
     // start
     let bpm = document.querySelector("#bpmRange").value;
