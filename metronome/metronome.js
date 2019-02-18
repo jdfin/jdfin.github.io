@@ -40,7 +40,7 @@ var flash = true;
 function bop() {
   // always reset it, since flash might change to false while the
   // button is colored
-  document.querySelector("#startStop").style.backgroundColor = "buttonface";
+  document.querySelector("#startStop").style.backgroundColor = "#6c757d";
 }
 
 function bip() {
