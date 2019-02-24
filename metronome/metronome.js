@@ -18,16 +18,22 @@ function volNumberInput(value) {
 
 function bpmRangeInput(value) {
   document.querySelector("#bpmNumber").value = value;
-  if (bipper) {
+  if (running) {
     clearInterval(bipper);
+    bipper = undefined;
+  }
+  if (running && value > 0) {
     bipper = setInterval(bip, 60000.0 / value);
   }
 }
 
 function bpmNumberInput(value) {
   document.querySelector("#bpmRange").value = value;
-  if (bipper) {
+  if (running) {
     clearInterval(bipper);
+    bipper = undefined;
+  }
+  if (running && value > 0) {
     bipper = setInterval(bip, 60000.0 / value);
   }
 }
@@ -35,6 +41,7 @@ function bpmNumberInput(value) {
 var audioContext = undefined;
 var gain = undefined;
 var oscillator = undefined;
+var running = false;
 var bipper = undefined;
 var beep = false;
 var flash = true;
@@ -77,17 +84,19 @@ function startStop() {
     gain.connect(audioContext.destination);
     gain.gain.setValueAtTime(0.5, audioContext.currentTime);
   }
-  if (bipper) {
+  if (running) {
     // stop
     clearInterval(bipper);
     bipper = undefined;
     document.querySelector("#startStop").innerText = "Start";
     document.querySelector("#startStop").style.backgroundColor = "#6c757d";
+    running = false;
   } else {
     // start
     var bpm = document.querySelector("#bpmRange").value;
     var interval_ms = 60000.0 / bpm;
     bipper = setInterval(bip, interval_ms);
     document.querySelector("#startStop").innerText = "Stop";
+    running = true;
   }
 }
