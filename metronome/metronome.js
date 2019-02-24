@@ -79,9 +79,6 @@ function startStop() {
   }
   if (bipper) {
     // stop
-    if (oscillator) {
-      oscillator.stop();
-    }
     clearInterval(bipper);
     bipper = undefined;
     document.querySelector("#startStop").innerText = "Start";
