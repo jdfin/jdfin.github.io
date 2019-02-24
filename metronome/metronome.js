@@ -43,6 +43,14 @@ function bop() {
   document.querySelector("#startStop").style.backgroundColor = "#6c757d";
 }
 
+function dbg(msg) {
+  try {
+    document.querySelector("#dbg").innerText += " " + msg;
+  }
+  catch (err) {
+  }
+}
+
 function bip() {
   if (beep) {
     let beepDuration = 0.10;
