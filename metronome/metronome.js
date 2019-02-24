@@ -1,5 +1,7 @@
 "use strict";
 
+// "let" kills javascript on iPhone 4S
+
 function volRangeInput(value) {
   document.querySelector("#volNumber").value = value;
   if (gain) {
@@ -53,7 +55,7 @@ function dbg(msg) {
 
 function bip() {
   if (beep) {
-    let beepDuration = 0.10;
+    var beepDuration = 0.10;
     oscillator = audioContext.createOscillator();
     oscillator.connect(gain);
     oscillator.type = 'sine';
@@ -61,7 +63,7 @@ function bip() {
     oscillator.stop(audioContext.currentTime + beepDuration);
   }
   if (flash) {
-    let flashDuration = 0.10;
+    var flashDuration = 0.10;
     document.querySelector("#startStop").style.backgroundColor = "red";
     setTimeout(bop, flashDuration * 1000.0);
   }
@@ -86,8 +88,8 @@ function startStop() {
     document.querySelector("#startStop").style.backgroundColor = "#6c757d";
   } else {
     // start
-    let bpm = document.querySelector("#bpmRange").value;
-    let interval_ms = 60000.0 / bpm;
+    var bpm = document.querySelector("#bpmRange").value;
+    var interval_ms = 60000.0 / bpm;
     bipper = setInterval(bip, interval_ms);
     document.querySelector("#startStop").innerText = "Stop";
   }
