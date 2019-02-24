@@ -69,6 +69,7 @@ function bip() {
 
 function startStop() {
   if (! audioContext) {
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
     audioContext = new AudioContext();
     gain = audioContext.createGain();
     gain.connect(audioContext.destination);
