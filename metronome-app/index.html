@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Metronome</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="stylesheet" href="styles/bootstrap.css">
+  <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Metronome</h1>
+
+    <div class="form-group">
+
+      <div class="row align-items-center">
+        <div class="col-sm-3">
+          <label for="volRange">Volume</label>
+        </div>
+        <div class="col-sm-6">
+          <input class="form-control-range" type="range" id="volRange"
+                 min="0" max="100" value="50"
+                 oninput="volRangeInput(this.value);">
+        </div>
+        <div class="col-sm-3">
+          <input class="form-control" type="number" id="volNumber"
+                 min="0" max="100" value="50"
+                 oninput="volNumberInput(this.value);">
+        </div>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-sm-3">
+          <label for="bpmRange">Beats/Minute</label>
+        </div>
+        <div class="col-sm-6">
+          <input class="form-control-range" type="range" id="bpmRange"
+                 min="30" max="300" value="100"
+                 oninput="bpmRangeInput(this.value);">
+        </div>
+        <div class="col-sm-3">
+          <input class="form-control" type="number" id="bpmNumber"
+                 min="30" max="300" value="100"
+                 oninput="bpmNumberInput(this.value);">
+        </div>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-sm-3 checkbox">
+          <label>
+            <input type="checkbox" id="beep"
+                   onchange="beep = this.checked;"> Beep
+          </label>
+        </div>
+        <div class="col-sm-3 checkbox">
+          <label>
+            <input type="checkbox" id="flash" checked
+                   onchange="flash = this.checked;"> Flash
+          </label>
+        </div>
+        <div class="col-sm-3">
+          <button type="button" class="btn btn-secondary" id="startStop"
+                  onclick="startStop();">Start</button>
+        </div>
+      </div>
+
+    </div> <!-- form-group -->
+
+  </div> <!-- container -->
+
+  <!--
+  <hr>
+  <small>
+  <script>
+    document.write("<p>Browser: " + navigator.appName + "</p>");
+    document.write("<p>Version: " + navigator.appVersion + "</p>");
+  </script>
+  <p id="dbg">Debug:</p>
+  </small>
+  -->
+
+  <script src="scripts/metronome.js" async></script>
+
+</body>
+
+</html>
